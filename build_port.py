@@ -7,7 +7,8 @@ __author__ = 'ryantischer'
 #Assumes the phyiscal port is configured under fabric \ access policies
 
 #Requires sys, json and requests.
-#Requires http enabled on the APIC.  Optionally can configure TLS1.1/1.2 on script server for https.
+#Requires http enabled on the APIC.  Optionally can configure TLS1.1/1.2 on script server for https and will require
+#changing base_url and workingURL to https
 
 # To enable http on APIC...
 
@@ -16,6 +17,10 @@ __author__ = 'ryantischer'
 #In the Work pane, enable HTTP and disable HTTPS
 
 #NOTE:  Configuration is atomic, if it fails for whatever reason, the entire configuration fails.
+
+#usage Can be run by opening this file and directly editing the variables.  Optionally command line agruments can be
+#used.  If command line agruments are used the script only checks for correct number of agruments.  --help prints help
+
 
 import json
 import requests
