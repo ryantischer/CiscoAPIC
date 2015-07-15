@@ -32,13 +32,13 @@ if numArg == 1:
     apic = "10.91.85.170"
     username = "admin"
     password = "cisco13579"
-    apicTenant = "Tischer"
-    apicANP = "2-TierApp"
-    apicEPG = "DBServers"
+    apicTenant = "skywalker"
+    apicANP = "OnlineStore"
+    apicEPG = "web"
     apicVlan = "1"
     apicPOD = "pod-1"
     apicSwitch = "101"
-    apicPort = "eth1/13414"
+    apicPort = "eth1/1"
 
 elif numArg == 2 and sys.argv[numArg-1] == "--help":
 
@@ -102,8 +102,8 @@ cookies['APIC-Cookie'] = auth_token
 
 #build dict to send to apic
 workingUrl =  "http://" + apic + "/api/node/mo/uni/tn-" + apicTenant + "/ap-" + apicANP + "/epg-" + apicEPG + ".json"
-workingData = {"fvRsPathAtt":{"attributes":{"encap":"vlan-1","instrImedcy":"immediate","tDn":"topology/pod-1/paths-101/pathep-[eth1/1]","status":"created"},"children":[]}}
-workingData["fvRsPathAtt"]["attributes"]["encap"] = "vlan-1" + apicVlan
+workingData = {"fvRsPathAtt":{"attributes":{"encap":"vlan-","instrImedcy":"immediate","tDn":"topology/pod-1/paths-101/pathep-[eth1/1]","status":"created"},"children":[]}}
+workingData["fvRsPathAtt"]["attributes"]["encap"] = "vlan-" + apicVlan
 workingData["fvRsPathAtt"]["attributes"]["tDn"] = "topology/" + apicPOD + "/paths-" + apicSwitch + "/pathep-[" +apicPort + "]"
 
 #create the static port in egp
