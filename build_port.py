@@ -42,7 +42,7 @@ if numArg == 1:
     apicEndPort = "eth1/4"
 elif numArg == 2 and sys.argv[numArg-1] == "--help":
 
-    print " usage: python build_port.py apicip username password tenant ANP epg vlan POD switch port"
+    print " usage: python build_port.py apicip username password tenant ANP epg vlan POD switch startport endport"
     print " example: python build_port.py 10.1.1.1 admin cisco123 tenant1 2Tierapp DBservers 1 pod-1 101 eth1/1 eth1/3"
     print " help found with --help"
     print""
@@ -62,7 +62,7 @@ elif numArg == 12:
     apicEndPort = sys.argv[11]
 else:
     print "You did something wrong.  Read below and try again"
-    print " usage: build_port.py apicip username password tenant ANP epg vlan POD switch port"
+    print " usage: build_port.py apicip username password tenant ANP epg vlan POD switch startport endport"
     print " example: build_port.py 10.1.1.1 admin cisco123 tenant1 2Tierapp DBservers 1 pod-1 101 eth1/1 eth1/3"
     sys.exit() #bail out
 
